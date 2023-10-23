@@ -108,12 +108,12 @@ async function collectUserInput() {
      ${answers.description}
         
 ## Table of Contents ${licenseBadge}
-    - [Installation](#installation)
-    - [Usage](#usage)
-    - [License](#license)
-    - [Contributing](#contributing)
-    - [Tests](#tests)
-    - [Questions](#questions)
+   -[Installation](#installation)
+   - [Usage](#usage)
+   - [License](#license)
+   - [Contributing](#contributing)
+   - [Tests](#tests)
+   - [Questions](#questions) 
         
 ## Installation
      ${answers.installation}
@@ -131,7 +131,7 @@ async function collectUserInput() {
     ${answers.license}
         
 ## Questions
-    If you have any questions, please feel free to reach out to me at [${answers.email}](mailto:${answers.email}). You can also find more of my work on [GitHub](https://github.com/${answers.github}).`;
+    If you have any questions, please feel free to reach out to me at ${answers.email}. To see my other work visit (https://github.com/${answers.username}).`;
 
     // Write the README to a new file
     fs.writeFileSync('README.md', readmeContent, 'utf8');
