@@ -132,7 +132,7 @@ async function collectUserInputWriteFile() {
     ${answers.test}
     
 ## License
-    ${answers.license}
+    This application is covered under the ${answers.license} license
         
 ## Questions
     If you have any questions, please feel free to reach out to me at ${answers.email}. To see my other work visit (https://github.com/${answers.username}).`;
