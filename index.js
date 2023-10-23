@@ -1,7 +1,8 @@
+//installing required libs
 const inquirer = require('inquirer');
 const fs = require('fs');
 
-// Map of license keywords to their corresponding badges
+// all the license badges from github
 const licenseBadges = {
     'AFL-3.0': '![AFL-3.0](https://img.shields.io/badge/License-AFL--3.0-blue.svg)',
     'Apache-2.0': '![Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-blue.svg)',
@@ -39,58 +40,61 @@ const licenseBadges = {
     'NCSA': '![NCSA](https://img.shields.io/badge/License-NCSA-blue.svg)',
     'Unlicense': '![Unlicense](https://img.shields.io/badge/License-Unlicense-blue.svg)',
     'Zlib': '![Zlib](https://img.shields.io/badge/License-Zlib-blue.svg)',
-    'No License': '', // Empty string for "No License"
+    'No License': '', 
     };
 
-async function collectUserInput() {
-  try {
-    const questions = [{
-      type: 'input',
-      name: 'title',
-      message: 'Enter your repository title:',
-  },
-  {
-      type: 'input',
-      name: 'description',
-      message: 'Enter your  application repository description:',
-  },
-  {
-      type: 'input',
-      name: 'installation',
-      message: 'Enter your installation instructions for your application:',
-  },
-  {
-      type: 'input',
-      name: 'usage',
-      message: 'Enter a short description about the usage of your application?',
-  },
-  {
-      type: 'input',
-      name: 'contribution',
-      message: 'Enter who contributed to the github project:',
-  },
-  {
-      type: 'input',
-      name: 'username',
-      message: 'Enter your github username?',
-  },
-  {
-      type: 'input',
-      name: 'email',
-      message: 'Enter your email?',
-  },
-  {
-      type: 'input',
-      name: 'test',
-      message: 'Enter test instructions for your application?',
-  },
-  {
-      type: 'list',
-      name: 'license',
-      message: 'Select a license for your project:',
-      choices: Object.keys(licenseBadges),
-      
-  },
+    //function to collect user input and write the readme file
+async function collectUserInputWriteFile() {
+    //prompt questions
+    try {
+        const questions = [{
+        type: 'input',
+        name: 'title',
+        message: 'Enter your repository title:',
+    },
+    {
+        type: 'input',
+        name: 'description',
+        message: 'Enter your  application repository description:',
+    },
+    {
+        type: 'input',
+        name: 'installation',
+        message: 'Enter your installation instructions for your application:',
+    },
+    {
+        type: 'input',
+        name: 'usage',
+        message: 'Enter a short description about the usage of your application?',
+    },
+    {
+        type: 'input',
+        name: 'contribution',
+        message: 'Enter who contributed to the github project:',
+    },
+    {
+        type: 'input',
+        name: 'username',
+        message: 'Enter your github username?',
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: 'Enter your email?',
+    },
+    {
+        type: 'input',
+        name: 'test',
+        message: 'Enter test instructions for your application?',
+    },
+    {
+        type: 'list',
+        name: 'license',
+        message: 'Select a license for your project:',
+        //converting the badges array
+        choices: Object.keys(licenseBadges),
+        
+    },
       
     ];
 
@@ -100,7 +104,7 @@ async function collectUserInput() {
     const selectedLicense = answers.license;
     const licenseBadge = licenseBadges[selectedLicense];
 
-    // Generate the README content
+    // Generate the README file
     const readmeContent = 
     `# ${answers.title}
 
@@ -125,7 +129,7 @@ async function collectUserInput() {
     ${answers.contribution}
         
 ## Tests
-    ${answers.tests}
+    ${answers.test}
     
 ## License
     ${answers.license}
@@ -133,7 +137,7 @@ async function collectUserInput() {
 ## Questions
     If you have any questions, please feel free to reach out to me at ${answers.email}. To see my other work visit (https://github.com/${answers.username}).`;
 
-    // Write the README to a new file
+    // write the readme content from above into a new fileS
     fs.writeFileSync('README.md', readmeContent, 'utf8');
     console.log('README.md has been generated.');
   } catch (error) {
@@ -141,4 +145,4 @@ async function collectUserInput() {
   }
 }
 
-collectUserInput();
+collectUserInputWriteFile();

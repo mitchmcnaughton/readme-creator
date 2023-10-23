@@ -4,7 +4,7 @@
      creates a readme file using cli, requirer, fs
         
 ## Table of Contents ![MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
-   -[Installation](#installation)
+   - [Installation](#installation)
    - [Usage](#usage)
    - [License](#license)
    - [Contributing](#contributing)
@@ -21,7 +21,7 @@
     just me
         
 ## Tests
-    undefined
+    none
     
 ## License
     MIT
