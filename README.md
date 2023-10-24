@@ -15,8 +15,9 @@
      download from github
         
 ## Usage
-    run "node index.js" from terminal fill in prompts as shown in [video](https://drive.google.com/file/d/1WHDjG5SPPfQTgKysnXv4fQv3NZ3IE45o/view)
-        
+    run "node index.js" from terminal fill in prompts as shown in the video below
+
+[video](https://drive.google.com/file/d/1WHDjG5SPPfQTgKysnXv4fQv3NZ3IE45o/view)
 ## Contributing
     just me
         
